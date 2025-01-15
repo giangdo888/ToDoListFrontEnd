@@ -1,0 +1,30 @@
+:root {
+    /* Backgrounds */
+    --first-color: #e0ffcd; /* Soft light green */
+    --second-color: #fdffcd; /* Soft light yellow */
+    --third-color: #ffebbb; /* Soft light orange */
+    --fourth-color: #ffcab0; /* Soft light red */
+
+    /* Navbar */
+    --nav-bar-bg: #f0f8f5; /* Soft, warm light teal (between first and second colors) */
+
+    /* Main content */
+    --main-content-bg: #ffffff; /* White background for the main content area */
+
+    /* Text Colors */
+    --main-black-text: #393e46; /* Dark text color for readability */
+    --secondary-text: #7a7a7a; /* Light gray text for secondary elements */
+    --link-text: #007bff; /* Blue color for links */
+
+    /* Button and Action Colors */
+    --button-bg: #34495e; /* Dark background for button-like elements */
+    --button-hover-bg: #16a085; /* Brighter button background on hover */
+    --button-active-bg: #1abc9c; /* Active button color */
+    
+    /* Accent Colors */
+    --highlight-bg: #ffd1dc; /* Light pink for highlighted sections */
+    --accent-green: #a1f4c3; /* Light green accents */
+    --accent-yellow: #fff4e6; /* Soft yellow accents */
+    --accent-orange: #ffefdf; /* Soft orange accents */
+    --accent-red: #ffccc9; /* Soft red accents */
+}

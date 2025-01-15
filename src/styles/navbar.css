@@ -1,0 +1,102 @@
+/* Navigation Bar */
+.nav-bar {
+    background-color: var(--nav-bar-bg); /* Soft light teal background for navbar */
+    color: var(--main-black-text); /* Dark text for navbar */
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Light shadow for separation */
+}
+
+/* Logo Styling */
+.nav-bar img {
+display: block;
+max-width: 100%;
+height: auto;
+margin-bottom: 50px;
+}
+
+.nav-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Navigation Header */
+.nav-header-text {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--main-black-text); /* Dark text color for the header */
+}
+
+.nav-header-btn {
+    font-size: 2rem;
+    height: 2.5rem;
+    width: 2.5rem;
+    color: var(--main-black-text); /* Dark text color for the header */
+    border: none;
+    border-radius: 5px;
+    background-color: var(--nav-bar-bg);
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.nav-header-textbox {
+    padding: 8px 12px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.nav-header-textbox:focus {
+    border-color: var(--button-bg); /* Border color on focus */
+}
+
+.nav-header-btn:hover {
+    background-color: var(--button-hover-bg);
+}
+
+/* Navigation Items */
+.nav-items {
+list-style: none;
+padding: 0;
+margin: 0;
+width: 100%;
+}
+
+.nav-item {
+margin: 10px 0;
+}
+
+.nav-item a {
+display: block;
+text-decoration: none;
+padding: 10px 15px;
+border-radius: 5px;
+color: var(--main-black-text); /* Dark text color for the header */
+transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Hover Effect for Navigation Links */
+.nav-item a:hover {
+background-color: var(--highlight-bg); /* Light pink background for hover */
+color: var(--main-black-text); /* Dark text on hover */
+}
+
+/* Active Effect */
+.nav-item a:active {
+background-color: var(--button-active-bg); /* Active button background */
+}
+
+.nav-active-item-color {
+    background-color: var(--button-active-bg);
+    border-radius: 5px;
+}
+
+.nav-inactive-item-color {
+    background-color: none;
+}

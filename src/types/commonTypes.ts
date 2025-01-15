@@ -3,6 +3,10 @@ type Project  = {
     name: string
 };
 
+type NavProps = {
+    projects: Project[]
+  };
+
 type Item = {
     id: number
     name: string

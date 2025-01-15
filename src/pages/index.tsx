@@ -8,10 +8,6 @@ import NavBar from '@/components/NavBar'
 
 const inter = Inter({ subsets: ['latin'] })
 
-type HomeProps = {
-  projects: Project[]
-};
-
 export async function getServerSideProps() {
   const projects = await fetchData("projects");
   return {
@@ -21,15 +17,15 @@ export async function getServerSideProps() {
   };
 }
 
-export default function Home({projects}: HomeProps) {
+export default function Home({projects}: NavProps) {
   return (
-    <>
+    <div className='layout'>
     <NavBar projects={projects}/>
-      <main>
+      <main className='main-content'>
         <h1>
-          Wellcome to To Do List! Please select a project or create a new one.
+          Welcome to To Do List! Please select a project or create a new one.
         </h1>
       </main>
-    </>
+    </div>
   )
 }

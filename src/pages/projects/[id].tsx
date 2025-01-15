@@ -1,13 +1,19 @@
+import NavBar from "@/components/NavBar";
 import { fetchData } from "@/services/api";
 import { GetServerSidePropsContext } from "next";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 
-type ProjectPageProps = {
-    items: Item[]
-}
+export async function getServerSideProps() {
+    const projects = await fetchData("projects");
+    return {
+        props: {
+            projects
+        }
+    };
+  }
 
-export default function ProjectPage() {
+export default function ProjectPage({projects}: NavProps) {
     const router = useRouter();
     const {id} = router.query;
     const [items, setItems] = useState<Item[]>();
@@ -26,8 +32,10 @@ export default function ProjectPage() {
     }, [id]);
 
     return (
-        <div>
-            {
+        <div className='layout'>
+            <NavBar projects={projects}/>
+              <main className='main-content'>
+              {
                 items?.map((item) => (
                     <ul key={item.id}>
                         <li key={`name-${item.id}`}>{item.name}</li>
@@ -37,6 +45,7 @@ export default function ProjectPage() {
                     </ul>
                 ))
             }
-        </div>
+              </main>
+            </div>
     );
 }
