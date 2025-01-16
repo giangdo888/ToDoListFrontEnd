@@ -1,17 +1,15 @@
 'use client'
 
-import Link from 'next/link';
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Image from 'next/image';
-import { usePathname } from 'next/navigation';
 import { fetchData } from '@/services/api';
+import ProjectCard from './projectCard';
 
 type NavBarProps = {
     projects: Project[]
 };
 
 export default function NavBar ({projects} : NavBarProps) {
-    const pathName = usePathname();
     const [isShowTextBox, setIsShowTextBox] = useState(false);
     const [newProjectInput, setNewProjectInput] = useState("");
     const [projectList, setProjectList] = useState<Project[]>(projects);
@@ -24,8 +22,8 @@ export default function NavBar ({projects} : NavBarProps) {
         setNewProjectInput(e.target.value);
     }
 
-    const handleSubmitNewProject = async (e: React.FormEvent) => {
-        e.preventDefault();
+    const handleSubmitProject = async (e: React.FormEvent | React.FormEvent) => {
+        e.preventDefault?.();
         //do nothing if input field is empty
         if (newProjectInput.trim() === "") {
             return;
@@ -50,6 +48,14 @@ export default function NavBar ({projects} : NavBarProps) {
         }
     }
 
+    const handleIsCardChanged = async () => {
+        const data = await fetchData("projects");
+
+        if (data) {
+            setProjectList(data);
+        }
+    }
+
     return (
         <div className='nav-bar'>
             <Image
@@ -63,7 +69,7 @@ export default function NavBar ({projects} : NavBarProps) {
                 <button className='nav-header-btn' onClick={handleOnClick}>+</button>
             </div>
             { isShowTextBox && (
-                <form onSubmit={handleSubmitNewProject}>
+                <form onSubmit={handleSubmitProject}>
                     <input
                         className="nav-header-textbox"
                         type="text"
@@ -76,11 +82,7 @@ export default function NavBar ({projects} : NavBarProps) {
             <ul className='nav-items'>
             {
                 projectList?.map((project : Project) => (
-                    <li key={project.id} className={`nav-item ${pathName == `/projects/${project.id}` ? "nav-active-item-color" : "nav-inactive-item-color"}`}>
-                        <Link href={`/projects/${project.id}`}>
-                            {project.name}
-                        </Link>
-                    </li>
+                    <ProjectCard project={project} handleCardChanged={handleIsCardChanged}/>
                 ))
             }
             </ul>
