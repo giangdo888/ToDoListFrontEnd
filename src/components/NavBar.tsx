@@ -58,11 +58,12 @@ export default function NavBar ({projects} : NavBarProps) {
 
     return (
         <div className='nav-bar'>
-            <Image
+            <Image className='logo'
                 src='/logo.png'
                 alt='ToDoList logo'
-                width={100}
-                height={80}
+                width={200}
+                height={200}
+                priority
             />
             <div className='nav-header'>
                 <h2 className='nav-header-text'>Project list</h2>

@@ -2,6 +2,7 @@ import { fetchData } from "@/services/api";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
+import Image from 'next/image';
 
 type ProjectCardProps = {
     project: Project,
@@ -58,7 +59,7 @@ export default function ProjectCard({project, handleCardChanged}: ProjectCardPro
     }
 
     return (
-        <li key={project.id} className={`nav-item ${pathName == `/projects/${project.id}` ? "nav-active-item-color" : "nav-inactive-item-color"}`}>
+        <li key={`project-${project.id}`} className={`nav-item ${pathName == `/projects/${project.id}` ? "nav-active-item-color" : "nav-inactive-item-color"}`}>
             {isEdit ? (
                 <form onSubmit={handleSubmitProjectName}>
                     <input
@@ -69,19 +70,35 @@ export default function ProjectCard({project, handleCardChanged}: ProjectCardPro
                     />
                 </form>
             ) : (
-                <div>
-                    <div>
-                        <Link href={`/projects/${project.id}`}>
-                            {projectName}
-                        </Link>
-                        <button onClick={toggleIsEdit}>Edit</button>
-                        <button onClick={toggleAreYouSurePanel}>Delete</button>
-                    </div>
+                <div className="nav-item-wrapper">
+                    <Link href={`/projects/${project.id}`}>
+                        {projectName}
+                    </Link>
+                    <button onClick={toggleIsEdit} className="project-btn">
+                        <Image
+                            src="/edit.png"
+                            alt="Edit Button"
+                            width={100}
+                            height={100}
+                            priority
+                        />
+                    </button>
+                    <button onClick={toggleAreYouSurePanel} className="project-btn">
+                        <Image
+                            src="/delete.png"
+                            alt="Delete Button"
+                            width={100}
+                            height={100}
+                            priority
+                        />
+                    </button>
                     { showAreYouSurePanel &&
-                        <div>
-                            <h4>Are you sure want to delete?</h4>
-                            <button onClick={handleDeleteProject}>Yes, delete it</button>
-                            <button onClick={toggleAreYouSurePanel}>No, keep it</button>
+                        <div className="AUS-modal-overlay">
+                            <div className="AUS-modal-container">
+                                <h4>Are you sure want to delete?</h4>
+                                <button onClick={handleDeleteProject} className="AUS-modal-btn AUS-modal-btn-yes">Yes, delete it</button>
+                                <button onClick={toggleAreYouSurePanel } className="AUS-modal-btn AUS-modal-btn-no">No, keep it</button>
+                            </div>
                         </div>
                     }
                 </div>
