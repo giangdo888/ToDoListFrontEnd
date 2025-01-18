@@ -84,7 +84,7 @@ align-self: center;
     width: 100%;
 }
 
-.nav-item a {
+.nav-item a, span {
 display: block;
 text-decoration: none;
 padding: 10px 15px;

@@ -11,6 +11,7 @@ type ProjectCardProps = {
 
 export default function ProjectCard({project, handleCardChanged}: ProjectCardProps) {
     const pathName = usePathname();
+    const isActive = pathName === `/projects/${project.id}`;
     const [isEdit, setIsEdit] = useState(false);
     const [projectName, setProjectName] = useState(project.name);
     const [showAreYouSurePanel, setShowAreYouSurePanel] = useState(false);
@@ -59,7 +60,7 @@ export default function ProjectCard({project, handleCardChanged}: ProjectCardPro
     }
 
     return (
-        <li className={`nav-item ${pathName == `/projects/${project.id}` ? "nav-active-item-color" : "nav-inactive-item-color"}`}>
+        <li className={`nav-item ${isActive ? "nav-active-item-color" : "nav-inactive-item-color"}`}>
             {isEdit ? (
                 <form onSubmit={handleSubmitProjectName}>
                     <input
@@ -71,9 +72,15 @@ export default function ProjectCard({project, handleCardChanged}: ProjectCardPro
                 </form>
             ) : (
                 <div className="nav-item-wrapper">
-                    <Link href={`/projects/${project.id}`}>
-                        {projectName}
-                    </Link>
+                    { isActive ? (
+                        <span>{projectName}</span>
+                    ) : (
+                        <Link href={`/projects/${project.id}`}>
+                            {projectName}
+                        </Link>
+
+                    )
+                    }
                     <button onClick={toggleIsEdit} className="project-btn">
                         <Image
                             src="/edit.png"
