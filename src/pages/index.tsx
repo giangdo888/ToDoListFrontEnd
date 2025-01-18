@@ -22,9 +22,7 @@ export default function Home({projects}: NavProps) {
     <div className='layout'>
     <NavBar projects={projects}/>
       <main className='main-content'>
-        <h1>
-          Welcome to To Do List! Please select a project or create a new one.
-        </h1>
+        <p>Welcome to To Do List!<br/> Please select a project or create a new one</p>
       </main>
     </div>
   )

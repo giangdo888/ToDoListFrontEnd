@@ -28,3 +28,9 @@
     --accent-orange: #ffefdf; /* Soft orange accents */
     --accent-red: #ffccc9; /* Soft red accents */
 }
+
+body, html {
+    padding: 0;
+    margin: 0;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}

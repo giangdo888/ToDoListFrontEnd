@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from 'react'
 import Image from 'next/image';
 import { fetchData } from '@/services/api';
-import ProjectCard from './projectCard';
+import ProjectCard from './ProjectCard';
 
 type NavBarProps = {
     projects: Project[]
@@ -83,7 +83,7 @@ export default function NavBar ({projects} : NavBarProps) {
             <ul className='nav-items'>
             {
                 projectList?.map((project : Project) => (
-                    <ProjectCard project={project} handleCardChanged={handleIsCardChanged}/>
+                    <ProjectCard key={`project-${project.id}`} project={project} handleCardChanged={handleIsCardChanged}/>
                 ))
             }
             </ul>

@@ -59,7 +59,7 @@ export default function ProjectCard({project, handleCardChanged}: ProjectCardPro
     }
 
     return (
-        <li key={`project-${project.id}`} className={`nav-item ${pathName == `/projects/${project.id}` ? "nav-active-item-color" : "nav-inactive-item-color"}`}>
+        <li className={`nav-item ${pathName == `/projects/${project.id}` ? "nav-active-item-color" : "nav-inactive-item-color"}`}>
             {isEdit ? (
                 <form onSubmit={handleSubmitProjectName}>
                     <input

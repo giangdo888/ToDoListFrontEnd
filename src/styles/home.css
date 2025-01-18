@@ -1,9 +1,3 @@
-body, html {
-    padding: 0;
-    margin: 0;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-}
-
 /* General Layout using Grid */
 .layout {
     display: grid;
@@ -17,16 +11,17 @@ body, html {
   
   /* Main Content */
   .main-content {
+    display: grid;
     padding: 40px;
     background-color: var(--main-content-bg); /* White background for content area */
     color: var(--main-black-text);
-    overflow-y: auto;
   }
   
-  .main-content h1 {
-    font-size: 2rem;
-    font-weight: bold;
+  .main-content p {
     color: var(--main-black-text);
+    justify-self: center;
+    align-self: center;
+    text-align: center;
   }
   
   /* Optional: Button-like links in content */
