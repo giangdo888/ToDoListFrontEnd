@@ -1,15 +1,9 @@
 :root {
-    /* Backgrounds */
-    --first-color: #e0ffcd; /* Soft light green */
-    --second-color: #fdffcd; /* Soft light yellow */
-    --third-color: #ffebbb; /* Soft light orange */
-    --fourth-color: #ffcab0; /* Soft light red */
-
     /* Navbar */
-    --nav-bar-bg: #f0f8f5; /* Soft, warm light teal (between first and second colors) */
+    --nav-bar-bg: #f0f8f5; /* Soft, warm light teal */
 
-    /* Main content */
-    --main-content-bg: #ffffff; /* White background for the main content area */
+    /* Main Content */
+    --main-content-bg: #ffffff; /* White background for main content area */
 
     /* Text Colors */
     --main-black-text: #393e46; /* Dark text color for readability */
@@ -20,14 +14,29 @@
     --button-bg: #34495e; /* Dark background for button-like elements */
     --button-hover-bg: #16a085; /* Brighter button background on hover */
     --button-active-bg: #1abc9c; /* Active button color */
-    
-    /* Accent Colors */
+
+    /* Priority Colors */
+    --low-border: #98d98a; /* Pale green for borders */
+    --low-bg: #dff6da; /* Very pale green for backgrounds */
+
+    --medium-border: #7aa3e5; /* Pale blue for borders */
+    --medium-bg: #d7e6f9; /* Very pale blue for backgrounds */
+
+    --high-border: #f5a05c; /* Pale orange for borders */
+    --high-bg: #ffe5cc; /* Very pale orange for backgrounds */
+
+    --critical-border: #f27c77; /* Pale red for borders */
+    --critical-bg: #ffdad8; /* Very pale red for backgrounds */
+
+    /* Highlight Colors */
     --highlight-bg: #ffd1dc; /* Light pink for highlighted sections */
     --accent-green: #a1f4c3; /* Light green accents */
     --accent-yellow: #fff4e6; /* Soft yellow accents */
     --accent-orange: #ffefdf; /* Soft orange accents */
     --accent-red: #ffccc9; /* Soft red accents */
 }
+
+
 
 body, html {
     padding: 0;

@@ -1,8 +1,13 @@
+import ItemCard from "@/components/ItemCard";
 import NavBar from "@/components/NavBar";
 import { fetchData } from "@/services/api";
 import { GetServerSidePropsContext } from "next";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
+
+type ProjectPageProps = {
+    projects: Project[]
+}
 
 export async function getServerSideProps() {
     const projects = await fetchData("projects");
@@ -13,7 +18,7 @@ export async function getServerSideProps() {
     };
   }
 
-export default function ProjectPage({projects}: NavProps) {
+export default function ProjectPage({projects}: ProjectPageProps) {
     const router = useRouter();
     const {id} = router.query;
     const [items, setItems] = useState<Item[]>();
@@ -37,12 +42,7 @@ export default function ProjectPage({projects}: NavProps) {
               <main className='main-content'>
               {
                 items?.map((item) => (
-                    <ul key={item.id}>
-                        <li key={`name-${item.id}`}>{item.name}</li>
-                        <li key={`projectId-${item.id}`}>{item.projectId}</li>
-                        <li key={`stateId-${item.id}`}>{item.stateId}</li>
-                        <li key={`priorityId-${item.id}`}>{item.priorityId}</li>
-                    </ul>
+                    <ItemCard key={`item-${item.id}`} item={item}></ItemCard>
                 ))
             }
               </main>

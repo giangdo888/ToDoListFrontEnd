@@ -1,0 +1,95 @@
+.project-btn {
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    margin-right: 5px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.project-btn img {
+    width: 30px;
+    height: auto;
+}
+
+.project-btn:hover {
+    transform: scale(1.1); /* Slightly enlarge on hover */
+}
+
+
+/* AUS-modal Overlay */
+.AUS-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent black background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Ensure it's above other elements */
+}
+
+/* AUS-modal Container */
+.AUS-modal-container {
+    background-color: var(--nav-bar-bg); /* AUS-modal background */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25); /* Soft shadow for depth */
+    max-width: 400px;
+    width: 90%; /* Responsive design */
+    text-align: center;
+    animation: fadeIn 0.3s ease; /* Fade-in effect */
+}
+
+/* AUS-modal Text */
+.AUS-modal-container h4 {
+    margin-bottom: 20px;
+    font-size: 1.25rem;
+    color: var(--main-black-text); /* Match your theme's text color */
+}
+
+/* AUS-modal Buttons */
+.AUS-modal-btn {
+    padding: 10px 20px;
+    margin: 5px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.AUS-modal-btn-no {
+    background-color: var(--button-active-bg); /* Primary action button */
+    color: white;
+}
+
+.AUS-modal-btn-no:hover {
+    background-color: var(--button-hover-bg); /* Hover effect for primary button */
+    transform: scale(1.05);
+}
+
+.AUS-modal-btn-yes {
+    background-color: transparent;
+    border: 1px solid var(--main-black-text); /* Outline for secondary button */
+    color: var(--main-black-text);
+}
+
+.AUS-modal-btn-yes:hover {
+    background-color: var(--highlight-bg); /* Hover effect for secondary button */
+    transform: scale(1.05);
+}
+
+/* Fade-In Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
